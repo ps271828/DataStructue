@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<hibernate>
+<hibernate.connection.driver_class/>
+<hibernate.max_fetch_depth/><hibernate.dialect/>
+<hibernate.jdbc.use_streams_for_binary/>
+<hibernate.format_sql/><hibernate.cache.region.factory_class/><hibernate.query.substitutions/><hibernate.proxool.pool_alias/><hibernate.connection.username/><hibernate.cache.region_prefix/><hibernate.connection.url/><hibernate.connection.password/><hibernate.jdbc.batch_versioned_data/><hibernate.connection.pool_size/></hibernate>

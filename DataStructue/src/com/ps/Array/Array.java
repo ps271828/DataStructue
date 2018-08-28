@@ -1,5 +1,7 @@
 package com.ps.Array;
 
+import java.util.Arrays;
+
 /**
  * @Author:panshuang
  * @Data:2018/8/27 23:41
@@ -53,6 +55,7 @@ public class Array <T> {
             data[i+1] = data[i];
         }
         data[index] = t;
+        size++;
    }
 
     /**
@@ -71,15 +74,105 @@ public class Array <T> {
         addByIndex(size, t);
    }
 
-   //查找元素
+    /**
+     * 查找第index个元素，从0到size-1
+     * @param index
+     * @return
+     */
+    public T find(int index){
+       if (index < 0 && index >= size) {
+           throw new IllegalArgumentException("index is out of bound!");
+       }
+       return data[index];
+    }
 
-    //更新元素
+    /**
+     * 根据坐标跟新元素
+     * @param index
+     * @param t
+     */
+    public void set(int index, T t){
+        if (index < 0 && index >= size) {
+            throw new IllegalArgumentException("index is out of bound!");
+        }
+        data[index] = t;
+    }
 
-    //是否包含元素
+    /**
+     * 查看是否包含某元素，如果包含，返回其索引，否则返回-1
+     * @param t
+     * @return
+     */
+    public int contains(T t){
+        for (int i = 0; i<size; i++) {
+            if (data[i].equals(t)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
-    //删除第一个元素
+    /**
+     * 根据索引删除元素
+     * @param index
+     * @return
+     */
+    public T remove(int index){
+        if (index < 0 && index >= size) {
+            throw new IllegalArgumentException("index is out of bound!");
+        }
+        T t = data[index];
+        for (int i = index; i < size-1; i++) {
+            data[i] = data[i+1];
+            if (i+1 == size-1) {
+                data[i+1] = null;
+            }
+        }
+        size --;
+        return t;
+    }
 
-    //删除最后一个元素
+    /**
+     * 删除第一个元素
+     * @return
+     */
+    public T removeFirst(){
+        return remove(0);
+    }
 
+    /**
+     * 删除最后一个元素
+     * @return
+     */
+    public T removeLast(){
+        return remove(size-1);
+    }
 
+    /**
+     * 根据元素删除
+     * @param t
+     * @return
+     */
+    public T removeByElement(T t){
+        int index = contains(t);
+        if (index == -1)
+            throw new IllegalArgumentException("This Element is not exists!");
+        return remove(index);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("The Size is "+size+"\n");
+        sb.append("The Capicity is "+data.length+"\n");
+        sb.append("[");
+        for (int i = 0; i < size; i++) {
+            if (i == size-1) {
+                sb.append(data[i].toString()+"]");
+                continue;
+            }
+            sb.append(data[i].toString()+",");
+        }
+        return sb.toString();
+    }
 }

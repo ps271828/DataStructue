@@ -1,7 +1,5 @@
 package com.ps.Array;
 
-import java.util.Arrays;
-
 /**
  * @Author:panshuang
  * @Data:2018/8/27 23:41
@@ -146,7 +144,9 @@ public class Array <T> {
             }
         }
         size --;
-        if (size == data.length / 2) {
+        //防止data.length/2 == 0 的情况，避免一个元素的时候data[0]报错的情况
+        //此处改写成这样是为了防止实际复杂度震荡，具体见映像笔记或者readme
+        if (size == data.length / 4 && data.length / 2 != 0) {
             resize(data.length / 2);
         }
         return t;

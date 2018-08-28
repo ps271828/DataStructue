@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @Author:panshuang
  * @Data:2018/8/27 23:41
- * @Description:数组相关操作
+ * @Description:数组相关操作,主要是模拟ArrayList的一些操作
  */
 public class Array <T> {
 
@@ -36,14 +36,14 @@ public class Array <T> {
      */
     public void add(T t){
         if (size == data.length) {
-            throw new IllegalArgumentException("Add failed, Array is full");
+            resize(2 * data.length);
         }
         data[size] = t;
         size++;
     }
 
     /**
-     * 根据坐标添加元素
+     * 根据坐标添加元素，要考虑容量够不够，先前这个位置只判断了索引是不是超出了实际长度
      * @param index
      * @param t
      */
@@ -51,11 +51,28 @@ public class Array <T> {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Index is Illegal");
         }
+
+        if (size == data.length) {
+            resize(2 * data.length);
+        }
+
         for (int i = size-1; i >= index; i--) {
             data[i+1] = data[i];
         }
         data[index] = t;
         size++;
+   }
+
+    /**
+     * 数组扩容
+     * @param newCapacity
+     */
+   public void resize(int newCapacity){
+        T[] newData = (T[]) new Object[newCapacity];
+        for (int i = 0; i <size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
    }
 
     /**
@@ -129,6 +146,9 @@ public class Array <T> {
             }
         }
         size --;
+        if (size == data.length / 2) {
+            resize(data.length / 2);
+        }
         return t;
     }
 

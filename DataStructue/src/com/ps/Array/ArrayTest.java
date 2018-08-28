@@ -8,7 +8,7 @@ package com.ps.Array;
 public class ArrayTest {
     public static void main(String[] args){
         //Ë³ĞòÌí¼Ó²âÊÔ
-        Array<Integer> arrInt = new Array<>(20);
+        Array<Integer> arrInt = new Array<>(10);
         for (int i = 0; i <10; i++) {
             arrInt.add(i);
         }

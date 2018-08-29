@@ -195,4 +195,20 @@ public class Array <T> {
         }
         return sb.toString();
     }
+
+    /**
+     * 获取第一个元素
+     * @return
+     */
+    public T getFirst(){
+      return find(0);
+    }
+
+    /**
+     * 获取最后一个元素
+     * @return
+     */
+    public T getLast(){
+        return find(size - 1);
+    }
 }

@@ -5,7 +5,7 @@ import com.ps.Quene.Quene;
 /**
  * @Author:panshuang
  * @Data:2018/9/2 10:03
- * @Description:Ñ­»·¶ÓÁĞÊµÏÖ
+ * @Description:å¾ªç¯é˜Ÿåˆ—å®ç°
  */
 public class LoopQuene <T> implements Quene <T> {
 
@@ -46,7 +46,7 @@ public class LoopQuene <T> implements Quene <T> {
         data[fornt] = null;
         fornt = (fornt+1)%data.length;
         size--;
-        //Õâ¸öÎ»ÖÃ²»ÊÇºÜºÏÀí£¬³õÊ¼¸ø5µÄÈİÁ¿£¬Èë¶ÓÒ»¸ö£¬³ö¶ÓÒ»¸ö£¬ÈİÁ¿¾Í»á¼õÉÙ£¬Ã»ÓĞÒ²±ğºÃµÄ°ì·¨£¬Ö»ÒªÄÜ·Å½øÔªËØ½øĞĞ£¬ºóÃæÔÙ½øĞĞÀ©Èİ
+        //è¿™ä¸ªä½ç½®ä¸æ˜¯å¾ˆåˆç†ï¼Œåˆå§‹ç»™5çš„å®¹é‡ï¼Œå…¥é˜Ÿä¸€ä¸ªï¼Œå‡ºé˜Ÿä¸€ä¸ªï¼Œå®¹é‡å°±ä¼šå‡å°‘ï¼Œæ²¡æœ‰ä¹Ÿåˆ«å¥½çš„åŠæ³•ï¼Œåªè¦èƒ½æ”¾è¿›å…ƒç´ è¿›è¡Œï¼Œåé¢å†è¿›è¡Œæ‰©å®¹
         if (size == (data.length-1)/4 && (data.length-1)/2 != 0) {
             reSize((data.length-1)/2+ 1);
         }

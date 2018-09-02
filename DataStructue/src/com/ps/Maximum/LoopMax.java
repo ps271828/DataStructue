@@ -3,12 +3,12 @@ package com.ps.Maximum;
 /**
  * @Author:panshuang
  * @Data:2018/8/5 17:40
- * @Description:Èı²ãÑ­»·Çó×î´ó×ÓĞòÁĞ
+ * @Description:æœ€å¤§å­åºåˆ—æ±‚å’Œ
  */
 public class LoopMax {
     public  static int maximum(int[] arr) {
         /**
-         * ×î´óÖµ£¬³õÊ¼Îª0
+         * æœ€å¤§å­åºåˆ—æ±‚å’Œæœ€å·®ç®—æ³•
          */
         int maxnum = 0;
         for (int i = 0; i <  arr.length; i++) {

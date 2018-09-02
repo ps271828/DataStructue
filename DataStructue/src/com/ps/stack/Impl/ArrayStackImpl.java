@@ -6,7 +6,7 @@ import com.ps.stack.ArrayStack;
 /**
  * @Author:panshuang
  * @Data:2018/8/29 22:44
- * @Description:Õ»µÄÊµÏÖÀàÒÔ¼°»ù±¾Î¬»¤
+ * @Description:æ ˆç›¸å…³æ“ä½œ
  */
 public class ArrayStackImpl <T> implements ArrayStack <T> {
 
@@ -49,7 +49,7 @@ public class ArrayStackImpl <T> implements ArrayStack <T> {
     }
 
     /**
-     * »ñÈ¡Õ»µÄÈİÁ¿
+     * è·å–é˜Ÿåˆ—å®¹é‡
      * @return
      */
     public Integer getCapicity(){

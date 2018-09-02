@@ -9,33 +9,33 @@ import java.util.*;
  */
 public class ArrayTest {
     public static void main(String[] args){
-        //Ë³ĞòÌí¼Ó²âÊÔ
+        //é¡ºåºæ·»åŠ æµ‹è¯•
         Array<Integer> arrInt = new Array<>(10);
         for (int i = 0; i <10; i++) {
             arrInt.add(i);
         }
         System.out.println(arrInt.toString());
 
-        //Ê×ÏîÌí¼Ó²âÊÔ
+        //é¦–é¡¹æ·»åŠ æµ‹è¯•
         arrInt.addFirst(99);
         System.out.println(arrInt.toString());
 
-        //Î²ÏîÌí¼Ó
+        //å°¾é¡¹æ·»åŠ 
         arrInt.addLast(100);
         System.out.println(arrInt.toString());
 
-        //¸ù¾İË÷ÒıÒÆ³ıÔªËØ
+        //æ ¹æ®ç´¢å¼•ç§»é™¤å…ƒç´ 
         arrInt.remove(3);
         System.out.println(arrInt.toString());
 
-        //°üº¬²âÊÔ
+        //åŒ…å«æµ‹è¯•
         System.out.println(arrInt.contains(5));
 
-        //¸ù¾İÔªËØÉ¾³ı²âÊÔ
+        //æ ¹æ®å…ƒç´ åˆ é™¤æµ‹è¯•
         arrInt.removeByElement(5);
         System.out.println(arrInt.toString());
 
-        //¸ù¾İË÷ÒıÕÒÑ°²âÊÔ
+        //æ ¹æ®ç´¢å¼•æ‰¾å¯»æµ‹è¯•
         System.out.println(arrInt.find(1));
 
         List<Integer> list = new ArrayList<>();
@@ -44,7 +44,7 @@ public class ArrayTest {
             list.add(i);
         }
 
-        //µü´úÆ÷×Ô´øremove·½·¨É¾³ıÔªËØ²»»áÆÆ»µµü´úÆ÷µÄºÏ·¨ĞÔ
+        //è¿­ä»£å™¨è‡ªå¸¦removeæ–¹æ³•åˆ é™¤å…ƒç´ ä¸ä¼šç ´åè¿­ä»£å™¨çš„åˆæ³•æ€§
         Iterator iterator = list.iterator();
         while (iterator.hasNext()){
             iterator.remove();
@@ -56,7 +56,7 @@ public class ArrayTest {
            map.put(i, i);
         }
 
-        //maoĞèÒª×ª»¯ÎªSet²ÅÄÜÊ¹ÓÃµü´úÆ÷£¬ÇÒÒ²Ö»ÄÜ½øĞĞremove²Ù×÷£¬²»ÄÜ½øĞĞÌí¼Ó²Ù×÷
+        //mapéœ€è¦è½¬åŒ–ä¸ºSetæ‰èƒ½ä½¿ç”¨è¿­ä»£å™¨ï¼Œä¸”ä¹Ÿåªèƒ½è¿›è¡Œremoveæ“ä½œï¼Œä¸èƒ½è¿›è¡Œæ·»åŠ æ“ä½œ
         Set<Map.Entry<Integer, Integer>> mapEntry = map.entrySet();
         Iterator mapIterator = mapEntry.iterator();
         while (mapIterator.hasNext()){

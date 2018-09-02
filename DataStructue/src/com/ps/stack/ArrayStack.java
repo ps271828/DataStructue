@@ -3,35 +3,35 @@ package com.ps.stack;
 /**
  * @Author:panshuang
  * @Data:2018/8/29 22:34
- * @Description:Õ»½Ó¿Ú£¬Õ»µÄºËĞÄ·½·¨Ö»ÓĞÈı¸ö£¬½øÕ»³öÕ»ÒÔ¼°²é¿´Õ»¶¥
+ * @Description:æ ˆç›¸å…³æ“ä½œæ¥å£
  */
 public interface ArrayStack <T> {
 
     /**
-     * ÈëÕ»
+     * å…¥æ ˆ
      */
      void push(T t);
 
     /**
-     * ³öÕ»
+     * å‡ºæ ˆ
      * @return
      */
     T pop();
 
     /**
-     * ²é¿´Õ»¶¥ÔªËØ
+     * æŸ¥çœ‹æ ˆé¡¶å…ƒç´ 
      * @return
      */
     T peek();
 
     /**
-     * »ñÈ¡Õ»µÄ´óĞ¡
+     * è·å–æ ˆå¤§å°
      * @return
      */
     int getSize();
 
     /**
-     * ÊÇ·ñÎª¿Õ£¬´Ë·½·¨²»ÊÇÕ»µÄ±ØÒª²Ù×÷
+     * åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º
      * @return
      */
     boolean isEmpty();

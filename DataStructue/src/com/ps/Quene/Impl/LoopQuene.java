@@ -26,6 +26,7 @@ public class LoopQuene <T> implements Quene <T> {
         this(10);
     }
 
+    //此处reSize的容量应为data.length-1的两倍，但是此时size的大小就是data.length-1,因此可以用size
     @Override
     public void enQuene(T t) {
         if ((tail + 1)%data.length == fornt) {
@@ -35,7 +36,7 @@ public class LoopQuene <T> implements Quene <T> {
         size++;
         tail = (tail+1)%data.length;
     }
-
+    
     @Override
     public T deQuene() {
         if (isEmpty()) {

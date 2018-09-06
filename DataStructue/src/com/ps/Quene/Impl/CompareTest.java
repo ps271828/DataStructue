@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * @Author:panshuang
  * @Data:2018/9/2 14:41
- * @Description:���������ѭ�����еıȽ�
+ * @Description:数组队列与循环队列的比较
  */
 public class CompareTest {
 

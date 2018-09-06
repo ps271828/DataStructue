@@ -37,5 +37,8 @@ public class CompareTest {
 
         Quene<Integer> loopQuene = new LoopQuene<>();
         System.out.println(testQuene(loopQuene,100000));
+
+        Quene<Integer> linkedListQueue = new LinkedListQueue<>();
+        System.out.println(testQuene(linkedListQueue,100000));
     }
 }

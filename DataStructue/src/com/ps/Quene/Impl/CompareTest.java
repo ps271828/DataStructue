@@ -7,12 +7,12 @@ import java.util.Random;
 /**
  * @Author:panshuang
  * @Data:2018/9/2 14:41
- * @Description:Êı×é¶ÓÁĞÓëÑ­»·¶ÓÁĞµÄ±È½Ï
+ * @Description:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ĞµÄ±È½ï¿½
  */
 public class CompareTest {
 
     /**
-     * ÔÚÊ®Íò¼¶±ğÇé¿öÏÂ£¬ÏûºÄÊ±¼ä²î¾àÒ»°Ù±¶ÒÔÉÏ
+     * åœ¨åä¸‡çº§åˆ«æƒ…å†µä¸‹ï¼Œæ¶ˆè€—æ—¶é—´å·®è·ä¸€ç™¾å€ä»¥ä¸Š
      * @param quene
      * @param optNum
      * @return

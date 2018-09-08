@@ -34,7 +34,9 @@ public class LinkList <T>{
          }
      }
 
-     private Node head;
+//     private Node head;
+    //新增虚拟头节点，避免头节点添加元素的特殊处理
+     private Node dummyHead;
      private int size;
 
     /**
@@ -42,7 +44,8 @@ public class LinkList <T>{
      * @param node
      */
      public LinkList(Node node){
-         this.head = node;
+         //this.head = node;
+         this.dummyHead = new Node(null, null);
          this.size = 0;
      }
 
@@ -59,8 +62,10 @@ public class LinkList <T>{
     }
 
     public void addFirst(T t){
-         this.head = new Node(t, this.head);
-         this.size++;
+        /* this.head = new Node(t, this.head);
+         this.size++;*/
+        //index应该还是为0，不影响后续的添加元素
+        add(0, t);
     }
 
     /**
@@ -73,16 +78,17 @@ public class LinkList <T>{
              throw new IllegalStateException("The index is invalid!");
          }
 
-         if (index == 0) {
-             addFirst(t);
-         }else {
-             Node prev = this.head;
-             for (int i = 0; i < index-1; i++) {
-                 prev = prev.next;
-             }
-             prev.next = new Node(t,prev.next);
-             this.size ++;
-         }
+       /* if (index == 0) {
+            addFirst(t);
+        }else {*/
+       //新增虚拟头节点后，无需关注头节点的处理，且新增头节点后，元素计数从1开始，不再从0开始
+            Node prev = this.dummyHead;
+            for (int i = 0; i < index; i++) {
+                prev = prev.next;
+            }
+            prev.next = new Node(t,prev.next);
+            this.size ++;
+       /* }*/
     }
 
     public void addLast(T t){

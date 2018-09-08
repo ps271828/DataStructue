@@ -12,7 +12,7 @@ import java.util.Random;
 public class CompareTest {
 
     /**
-     * 在十万级别情况下，消耗时间差距一百倍以上
+     * 对于循环队列以及链表队列，与数组队列相比。在十万级别情况下，消耗时间差距一百倍以上
      * @param quene
      * @param optNum
      * @return

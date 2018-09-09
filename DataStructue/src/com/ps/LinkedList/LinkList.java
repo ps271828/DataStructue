@@ -74,7 +74,7 @@ public class LinkList <T>{
      * @param t
      */
     public void add(int index, T t){
-         if (index < 0 || index >size) {
+         if (index < 0 || index > size) {
              throw new IllegalStateException("The index is invalid!");
          }
 
@@ -93,5 +93,47 @@ public class LinkList <T>{
 
     public void addLast(T t){
          add(this.size, t);
+    }
+
+    public T get(int index){
+        //有虚拟节点的存在，因此index不可以等于size，第一个元素实际上是第0个元素
+        if (index < 0 || index >= this.size) {
+            throw new IllegalStateException("The index is invalid!");
+        }
+        Node curr = this.dummyHead.next;
+        //循环index次，拿到第index个元素
+        for (int i = 0; i < index; i++) {
+            curr = curr.next;
+        }
+        return curr.t;
+    }
+
+    public T getFirst(){
+        return get(0);
+    }
+
+    public  T getLast(){
+        return get(this.size - 1);
+    }
+
+    public boolean contains(T t){
+       Node curr = this.dummyHead.next;
+       while (curr != null){
+           if (curr.equals(t)) {
+               return true;
+           }
+           curr = curr.next;
+       }
+       return false;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Node node = this.dummyHead.next; node != null; node = node.next) {
+            sb.append(node.t+"-->");
+        }
+        sb.append("null");
+        return sb.toString();
     }
 }

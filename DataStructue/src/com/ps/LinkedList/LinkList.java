@@ -127,6 +127,42 @@ public class LinkList <T>{
        return false;
     }
 
+    /**
+     * 移除链表的元素
+     * @param index
+     * @return
+     */
+    public T remove(int index){
+        if (index < 0 || index >= this.size) {
+            throw new IllegalStateException("The index is invalid!");
+        }
+        Node prev = this.dummyHead;
+        for (int i = 0; i < index; i++) {
+            prev = prev.next;
+        }
+        Node retNode = prev.next;
+        prev.next = retNode.next;
+        retNode.next = null;
+        this.size --;
+        return retNode.t;
+    }
+
+    /**
+     * 移除链表的第一个元素
+     * @return
+     */
+    public T removeFirst(){
+        return remove(0);
+    }
+
+    /**
+     * 移除链表的最后一个元素
+     * @return
+     */
+    public T removeLast(){
+        return remove(this.size-1);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

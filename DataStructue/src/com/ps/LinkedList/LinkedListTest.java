@@ -16,5 +16,19 @@ public class LinkedListTest {
 
         linkList.add(2, 666);
         System.out.println(linkList);
+
+        linkList.remove(2);
+        System.out.println(linkList);
+
+        linkList.removeFirst();
+        System.out.println(linkList);
+
+        linkList.removeLast();
+        System.out.println(linkList);
+
+        linkList.removeLast();
+        linkList.removeLast();
+        linkList.removeLast();
+        System.out.println(linkList);
     }
 }

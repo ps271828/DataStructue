@@ -5,7 +5,7 @@ import com.ps.stack.ArrayStack;
 /**
  * @Author:panshuang
  * @Data:2018/9/10 23:49
- * @Description:Á´±íÊµÏÖÕ»
+ * @Description:å•é“¾è¡¨å®ç°é˜Ÿåˆ—
  */
 public class LinkedListStack <T> implements ArrayStack <T> {
 

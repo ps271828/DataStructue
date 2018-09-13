@@ -31,6 +31,7 @@ public class LinkedListTest {
         linkList.removeLast();
         System.out.println(linkList);
 
+        //链表实现栈得操作
         LinkedImplStack<Integer> stack = new LinkedImplStack<Integer>();
         for (int i = 0; i < 5; i++) {
             stack.push(i);

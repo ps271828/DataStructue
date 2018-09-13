@@ -3,7 +3,7 @@ package com.ps.LinkedList;
 /**
  * @Author:panshuang
  * @Data:2018/9/9 23:52
- * @Description:²âÊÔÁ´±íµÄ»ù±¾²Ù×÷
+ * @Description:æµ‹è¯•é“¾è¡¨çš„åŸºæœ¬æ“ä½œ
  */
 public class LinkedListTest {
     public static void main(String[] args) {

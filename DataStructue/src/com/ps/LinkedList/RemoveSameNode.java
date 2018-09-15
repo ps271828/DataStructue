@@ -68,4 +68,9 @@ public class RemoveSameNode {
         head.next = removeElementByRecursion(head.next, val);
         return head.val == val ? head.next:head;
     }
+
+    public static void main(String[] args) {
+        ListNode node = new ListNode(0);
+        node.initNode(node, new int[]{1,2,3}, 0);
+    }
 }

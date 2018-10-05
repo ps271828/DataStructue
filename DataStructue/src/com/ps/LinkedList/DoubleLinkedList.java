@@ -49,22 +49,25 @@ public class DoubleLinkedList<T> {
             throw new IllegalStateException("The index is invalid!");
         }
 
-        if (this.size == 0) {
-            this.head.t = t;
-            this.size ++;
+        this.size ++;
+        Node prev = this.head.prev;
+        Node node = new Node(t);
+        if (prev == null) {
+            node.prev = prev;
+            node.next = head;
+            head = node;
             return;
         }
 
-        Node curr = this.head;
-        for (int i = 0; i < index; i++) {
-            curr = curr.next;
+        for (int i = 0; i < index ; i++) {
+            prev = prev.next;
         }
-        Node newNode = new Node(t);
-        newNode.prev = curr.prev;
-        curr.prev.next = newNode;
-        newNode.next = curr;
-        curr.prev = newNode;
-        this.size ++;
+
+        prev.next = node;
+        node.prev = prev;
+        if (prev.next.next !=  null) {
+            node.next = prev.next.next;
+        }
     }
 
     /**
@@ -92,20 +95,25 @@ public class DoubleLinkedList<T> {
         if (index < 0 || index > this.size) {
             throw  new IllegalStateException("The index is invalid!");
         }
-        if (this.size == 1) {
-            T t = this.head.t;
-            this.head = null;
-            return t;
-        }
-        Node curr = this.head;
-        for (int i = 0; i < index; i++) {
+
+        T t;
+        Node curr = this.head ;
+        for (int i = 0; i < index - 1 ; i++) {
             curr = curr.next;
         }
-        curr.prev.next = curr.next;
-        curr.next.prev = curr.prev;
-        T t = curr.t;
-        curr = null;
         this.size -- ;
+        t = curr.t;
+        //处理头节点，尾节点以及当中节点三种情况
+        if (curr.prev == null && curr.next != null) {
+            curr.next.prev = null;
+            this.head = curr.next;
+        }else if (curr.next == null && curr.prev != null) {
+             curr.prev.next = null;
+        }else {
+            curr.next.prev = curr.prev;
+            curr.prev.next = curr.next;
+        }
+        curr = null;
         return t;
     }
 
@@ -132,7 +140,6 @@ public class DoubleLinkedList<T> {
     public Integer getSize(){
         return this.size;
     }
-
     /**
      * 获取指定位置元素
      * @param index
@@ -181,6 +188,7 @@ public class DoubleLinkedList<T> {
         while (curr.next != null){
             sb.append(curr.t);
             sb.append("-->");
+            curr = curr.next;
         }
         sb.append("null");
         return sb.toString();
@@ -189,7 +197,7 @@ public class DoubleLinkedList<T> {
     public static void main(String[] args) {
         DoubleLinkedList<Integer> doubleLinkedList = new DoubleLinkedList<>();
         for (int i = 0; i < 5; i++) {
-            doubleLinkedList.add(i,0);
+            doubleLinkedList.add(0,i);
             System.out.println(doubleLinkedList);
         }
 

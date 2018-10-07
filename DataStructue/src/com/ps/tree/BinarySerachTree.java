@@ -23,6 +23,12 @@ public class BinarySerachTree <T extends Comparable> {
     private Integer size;
     public BinarySerachTree(T t){
         this.root = new Node(t);
+        this.size = 1;
+    }
+
+    public BinarySerachTree(){
+        this.root = null;
+        this.size = 0;
     }
 
     public int getSize(){
@@ -46,11 +52,11 @@ public class BinarySerachTree <T extends Comparable> {
     private void add(Node node, T t){
         if (t.equals(node.t)) {
             return;
-        }else if (t.compareTo(node.t) > 0) {
+        }else if (t.compareTo(node.t) > 0 && node.right == null) {
             node.right = new Node(t);
             this.size ++;
             return;
-        }else if (t.compareTo(node.t) < 0) {
+        }else if (t.compareTo(node.t) < 0 && node.left == null) {
             node.left = new Node(t);
             this.size ++;
             return;
@@ -76,5 +82,62 @@ public class BinarySerachTree <T extends Comparable> {
             node.right = add1(node.right, t);
         }
         return node;
+    }
+
+    public boolean contains(T t){
+        return contains(this.root, t);
+    }
+
+    /**
+     * 递归判断是否包含某元素
+     * @param node
+     * @param t
+     * @return
+     */
+    private boolean contains(Node node, T t){
+        if (node == null) {
+            return false;
+        }
+
+        if (t.compareTo(node.t) == 0) {
+            return  true;
+        }else if (t.compareTo(node.t) > 0) {
+            return contains(node.right, t);
+        }else {
+            return contains(node.left, t);
+        }
+    }
+
+    /**
+     * 先序后序中序区别在于根节点的读取位置，根再开头就为先序，中间就为中序，最后就为后续
+     */
+    //先序遍历
+    public void preFix(){
+        preFix(this.root);
+    }
+
+    /**
+     * z指定节点遍历其以及其下的子节点
+     * @param node
+     */
+    private void preFix(Node node){
+        if (node == null) {
+            return ;
+        }
+        System.out.println(node.t);
+        preFix(node.left);
+        preFix(node.right);
+    }
+
+    public static void main(String[] args) {
+        BinarySerachTree<Integer> bst = new BinarySerachTree<>();
+
+        int[] num = new int[]{5,3,2,6,8,4};
+
+        for (int curr:num) {
+            bst.add(curr);
+        }
+
+        bst.preFix();
     }
 }

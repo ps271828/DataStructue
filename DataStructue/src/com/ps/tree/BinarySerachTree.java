@@ -1,5 +1,7 @@
 package com.ps.tree;
 
+import java.util.Stack;
+
 /**
  * @Author:panshuang
  * @Data:2018/10/5 22:55
@@ -117,7 +119,7 @@ public class BinarySerachTree <T extends Comparable> {
     }
 
     /**
-     * z指定节点遍历其以及其下的子节点
+     * z指定节点遍历其以及其下的子节点  前序遍历
      * @param node
      */
     private void preFix(Node node){
@@ -129,15 +131,68 @@ public class BinarySerachTree <T extends Comparable> {
         preFix(node.right);
     }
 
+    //中序遍历
+    public void inOrder(){
+        inOrder(this.root);
+    }
+
+    public  void inOrder(Node node){
+        if (node == null) {
+            return;
+        }
+        inOrder(node.left);
+        System.out.println(node.t);
+        inOrder(node.right);
+    }
+
+    //后序遍历
+    public void lastRoot(){
+        lastRoot(this.root);
+    }
+
+    private void lastRoot(Node node){
+        if (node == null) {
+            return;
+        }
+        lastRoot(node.left);
+        lastRoot(node.right);
+        System.out.println(node.t);
+    }
+
+    public void stackPreFix(){
+        Stack<Node> stack = new Stack<>();
+        stack.push(this.root);
+        while(!stack.isEmpty()){
+            Node cur = stack.pop();
+            System.out.println(cur.t);
+            if (cur.right != null) {
+                stack.push(cur.right);
+            }
+
+            if (cur.left != null) {
+                stack.push(cur.left);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         BinarySerachTree<Integer> bst = new BinarySerachTree<>();
+
+        /**
+         *       5
+         *     3   6
+         *   2   4   8
+         */
 
         int[] num = new int[]{5,3,2,6,8,4};
 
         for (int curr:num) {
             bst.add(curr);
         }
+       //bst.inOrder();
+       bst.preFix();
+       //bst.lastRoot();
 
-        bst.preFix();
+        bst.stackPreFix();
     }
 }

@@ -1,5 +1,7 @@
 package com.ps.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -159,6 +161,9 @@ public class BinarySerachTree <T extends Comparable> {
         System.out.println(node.t);
     }
 
+    /**
+     * 深度优先二叉树，适用于查看深度以及获取底层元素等场景
+     */
     public void stackPreFix(){
         Stack<Node> stack = new Stack<>();
         stack.push(this.root);
@@ -171,6 +176,26 @@ public class BinarySerachTree <T extends Comparable> {
 
             if (cur.left != null) {
                 stack.push(cur.left);
+            }
+        }
+    }
+
+    /**
+     * 广度优先遍历二叉树  适用于寻找某元素得最短路径
+     */
+    public void levelFix(){
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(this.root);
+        while (!queue.isEmpty()){
+            Node cur = queue.remove();
+            System.out.println(cur.t);
+
+            if (cur.left != null) {
+                queue.add(cur.left);
+            }
+
+            if (cur.right != null) {
+                queue.add(cur.right);
             }
         }
     }
@@ -189,10 +214,12 @@ public class BinarySerachTree <T extends Comparable> {
         for (int curr:num) {
             bst.add(curr);
         }
-       //bst.inOrder();
-       bst.preFix();
-       //bst.lastRoot();
+       //bst.inorder();
+//       bst.prefix();
+       //bst.lastroot();
 
-        bst.stackPreFix();
+        //bst.stackprefix();
+
+        bst.levelFix();
     }
 }
